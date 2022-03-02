@@ -12,11 +12,11 @@ import java.util.Scanner;
 
 public class Task1_FileCopy {
 
-    static String file_path;
-    static String file_copy_path;
-    static int number;
+    static String file_path;       // Строка, в которой будет содержаться путь к копируемому файлу
+    static String file_copy_path;  // Строка, в которой будет содержаться путь к копии файла
+    static int number;             // Переменная , в которой будет содержаться число выбранного пункта меню
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { // В мейне я сделал меню с выбором желаемого способа копирования
 
         System.out.println("\n      Программа 'Копирование файлов'\n");
         System.out.println("Выберите, каким способом будет скопирован файл");
@@ -24,21 +24,21 @@ public class Task1_FileCopy {
 
         switch (number) {
             case 1 -> {
-                File_Copy file_copy_io = new File_Copy_IO();
+                Task_1.Task1_FileCopy.File_Copy file_copy_io = new Task_1.Task1_FileCopy.File_Copy_IO();
                 file_copy_io.file_path();
                 file_copy_io.file_copy_path();
                 file_copy_io.paths_check();
                 file_copy_io.file_copy();
             }
             case 2 -> {
-                File_Copy file_copy_nio = new File_Copy_NIO();
+                Task_1.Task1_FileCopy.File_Copy file_copy_nio = new Task_1.Task1_FileCopy.File_Copy_NIO();
                 file_copy_nio.file_path();
                 file_copy_nio.file_copy_path();
                 file_copy_nio.paths_check();
                 file_copy_nio.file_copy();
             }
             case 3 -> {
-                File_Copy file_copy_nio2 = new File_Copy_NIO2();
+                Task_1.Task1_FileCopy.File_Copy file_copy_nio2 = new Task_1.Task1_FileCopy.File_Copy_NIO2();
                 file_copy_nio2.file_path();
                 file_copy_nio2.file_copy_path();
                 file_copy_nio2.paths_check();
@@ -47,7 +47,7 @@ public class Task1_FileCopy {
         }
     }
 
-    static void switch_enter_check() {
+    static void switch_enter_check() {  // В этом методе идет проверка на ввод с клавиатуры при выборе в главном меню
         Scanner scan_number = new Scanner(System.in);
         System.out.println("1 - классический способ (Пакет IO)");
         System.out.println("2 - используя channels (Пакет NIO)");
@@ -67,7 +67,7 @@ public class Task1_FileCopy {
         }
     }
 
-    static void enter_file_path() {
+    static void enter_file_path() { // Данный метод считывает путь к копируемому файлу и заносит его в переменную file_path
 
         System.out.println("\nВведите в консоли путь к копируемому файлу");
         System.out.println("Пример: C:\\Users\\ilyas\\IdeaProjects\\Junior_TEST\\src\\Task_1\\file.txt");
@@ -76,7 +76,7 @@ public class Task1_FileCopy {
         file_path = scanner_input.nextLine();
     }
 
-    static void enter_file_copy_path() {
+    static void enter_file_copy_path() { // Данный метод считывает путь к копии файла и заносит его в переменную file_copy_path
 
         System.out.println("\nВведите в консоли путь, где будет лежать копия файла");
         System.out.println("Пример: C:\\Users\\ilyas\\IdeaProjects\\Junior_TEST\\src\\Task_1\\file_copy.txt");
@@ -85,8 +85,8 @@ public class Task1_FileCopy {
         file_copy_path = scanner_output.nextLine();
     }
 
-    static void enter_paths_check() {
-        if (file_path.equals(file_copy_path)) {
+    static void enter_paths_check() {            // Данный метод проверяет, не совпадают ли пути копируемого файла и его копии.
+        if (file_path.equals(file_copy_path)) {  // если пути совпадают, он просит их перезаписать
             System.out.println("\n                          Ошибка ввода!");
             System.out.println("Пути первоначального файла и его копии совпадают, введите пути заново!");
             enter_file_path();
@@ -94,8 +94,8 @@ public class Task1_FileCopy {
         }
     }
 
-    static void file_check() {
-
+    static void file_check() { // Данный метод берет путь к копии файла и проверяет, не создан ли уже по этому пути другой файл
+        // если файл по этому пути уже существует, метод просит перезаписать пути исходного файла и его копии
         int choice_number;
         Scanner scan_file = new Scanner(System.in);
         File file = new File(file_copy_path);
@@ -128,7 +128,7 @@ public class Task1_FileCopy {
         }
     }
 
-    interface File_Copy {
+    interface File_Copy { // Интерфейс
 
         void file_path();
 
@@ -139,7 +139,7 @@ public class Task1_FileCopy {
         void file_copy();
     }
 
-    static class File_Copy_IO implements File_Copy {
+    static class File_Copy_IO implements Task_1.Task1_FileCopy.File_Copy { // Класс для копирования с помощью IO
 
         public void file_path() {
             enter_file_path();
@@ -174,7 +174,7 @@ public class Task1_FileCopy {
         }
     }
 
-    static class File_Copy_NIO implements File_Copy {
+    static class File_Copy_NIO implements Task_1.Task1_FileCopy.File_Copy { // Класс для копирования с помощью channels (NIO)
 
         public void file_path() {
             enter_file_path();
@@ -207,7 +207,7 @@ public class Task1_FileCopy {
         }
     }
 
-    static class File_Copy_NIO2 implements File_Copy {
+    static class File_Copy_NIO2 implements Task_1.Task1_FileCopy.File_Copy {// Класс для копирования с помощью Files (NIO2)
 
         public void file_path() {
             enter_file_path();
