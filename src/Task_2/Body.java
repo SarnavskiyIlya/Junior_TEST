@@ -1,8 +1,17 @@
 package Task_2;
 
-public abstract class Body { // абстрактный класс тело
+/**
+ * Абстрактный класс Тело
+ */
+public abstract class Body {
 
-    public abstract double getVolume();  // абстрактный метод для получения объема фигуры
+    /**
+     * Абстрактный метод для вычисления объема тела
+     */
+    public abstract double getVolume();
 
-    public abstract void print(); // абстрактный метод для получения информации о фигуре
+    /**
+     * Абстрактный метод для полученя информации о Теле
+     */
+    public abstract void print();
 }

@@ -1,27 +1,45 @@
 package Task_2;
 
-public class Square extends Figure { // производный класс квадрат
+/**
+ * Класс квадрат
+ * Наследуется от абстрактного класса 'Фигура'
+ */
+public class Square extends Figure {
 
-    String Figure_Name = "Квадрат";
+    /**
+     * Переменные, содержащие
+     * Имя фигуры
+     * Велечину стороны
+     */
+    String FigureName = "Квадрат";
     double side;
 
-    Square(double side) {  // конструктор с обращением к конструктору класса Figure
-
+    /**
+     * Конструктор класса, принимающий в качестве параметра длину стороны
+     */
+    Square(double side) {
         this.side = side;
     }
 
+    /**
+     * Метод, возвращающий периметр фигуры
+     */
     public double getPerimeter() {
-
         return side * 4 +1;
     }
 
+    /**
+     * Метод, возвращающий площадь фигуры
+     */
     public double getSquare() {
-
         return side * side;
     }
 
+    /**
+     * Метод, выводящий основную информацию о фигуре
+     */
     public void print() {
-        System.out.println("\nДанная фигура - " + this.Figure_Name);
+        System.out.println("\nДанная фигура - " + this.FigureName);
         System.out.println("Сторона = " + side);
         System.out.println("Периметр P = " + getPerimeter());
         System.out.println("Площадь  S = " + getSquare());
