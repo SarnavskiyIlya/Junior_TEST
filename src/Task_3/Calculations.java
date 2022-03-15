@@ -11,9 +11,9 @@ public class Calculations implements Operations {
     /**
      * Создание объектов разных типов с методами Генерик класса
      */
-    static Variables<Integer> integers = new Variables<>();
-    static Variables<Double> doubles = new Variables<>();
-    static Variables<String> strings = new Variables<>();
+     Variables<Integer> integers = new Variables<>();
+     Variables<Double> doubles = new Variables<>();
+     Variables<String> strings = new Variables<>();
 
     /**
      * Сложение

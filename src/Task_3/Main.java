@@ -11,6 +11,7 @@ public class Main {
      * Создание объекта класса с вычислениями
      */
     static Calculations calculations = new Calculations();
+
     /**
      * Переменная, в которой содержится число, соответствующее выбранному пункту меню
      */
@@ -29,8 +30,8 @@ public class Main {
         switch (MenuSelectionCheck()) {
 
             case 1 -> {
-                Calculations.integers.setX(4); // 1 переменная типа int
-                Calculations.integers.setY(2); // 2 переменная типа int
+                calculations.integers.setX(4); // 1 переменная типа int
+                calculations.integers.setY(2); // 2 переменная типа int
 
                 switch (OperationChoice()) {
                     case 1 -> calculations.addition(1);
@@ -41,8 +42,8 @@ public class Main {
                 calculations.print(1);
             }
             case 2 -> {
-                Calculations.doubles.setX(12.1); // 1 переменная типа double
-                Calculations.doubles.setY(6.05); // 1 переменная типа double
+                calculations.doubles.setX(12.1); // 1 переменная типа double
+                calculations.doubles.setY(6.05); // 1 переменная типа double
 
                 switch (OperationChoice()) {
                     case 1 -> calculations.addition(2);
@@ -53,8 +54,8 @@ public class Main {
                 calculations.print(2);
             }
             case 3 -> {
-                Calculations.strings.setX("12345"); // 1 переменная типа string
-                Calculations.strings.setY("qwe");   // 2 переменная типа string
+                calculations.strings.setX("12345"); // 1 переменная типа string
+                calculations.strings.setY("qwe");   // 2 переменная типа string
 
                 switch (OperationChoice()) {
                     case 1 -> calculations.addition(3);

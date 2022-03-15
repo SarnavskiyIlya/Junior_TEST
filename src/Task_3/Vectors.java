@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Посколько от типа операции координаты меняются, ввод дополнительных координат
  * происходит после выбора операции!
  */
-public class Vectors extends Main {
+public class Vectors {
 
     /**
      * coordinates - список с координатами точек
